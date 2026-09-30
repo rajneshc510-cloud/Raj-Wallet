@@ -361,5 +361,26 @@ async function signupUser() {
   msg.textContent = "Account बन गया। अगर email confirmation मांगे तो email verify करें।";
 }
 </script>
+<style>
+  #authBoxFix,
+  #authBoxFix * {
+    pointer-events: auto !important;
+  }
+
+  #authBoxFix {
+    z-index: 999999 !important;
+  }
+
+  #authBoxFix button {
+    cursor: pointer !important;
+  }
+</style>
+
+<script>
+document.querySelectorAll('button').forEach(function(button) {
+  button.style.pointerEvents = 'auto';
+  button.style.cursor = 'pointer';
+});
+</script>
 </body>
 </html>
