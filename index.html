@@ -271,5 +271,95 @@
     SUPABASE_PUBLISHABLE_KEY
   );
 </script>
+<script>
+const authBox = document.createElement("div");
+
+authBox.innerHTML = `
+<div style="
+position:fixed;inset:0;background:#07111f;z-index:99999;
+display:flex;align-items:center;justify-content:center;padding:20px;">
+  <div style="
+  width:100%;max-width:380px;background:#101d2f;
+  padding:25px;border-radius:20px;color:white;text-align:center;">
+    
+    <h2 style="margin-bottom:8px;">RajWallet</h2>
+    <p style="color:#9fb0c5;">Login या नया account बनाएं</p>
+
+    <input id="authEmail" type="email" placeholder="Email"
+      style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:0;box-sizing:border-box;">
+
+    <input id="authPassword" type="password" placeholder="Password"
+      style="width:100%;padding:13px;margin:8px 0;border-radius:10px;border:0;box-sizing:border-box;">
+
+    <button onclick="loginUser()" style="
+      width:100%;padding:13px;margin-top:8px;border:0;border-radius:10px;
+      background:#1683ff;color:white;font-weight:bold;">
+      Login
+    </button>
+
+    <button onclick="signupUser()" style="
+      width:100%;padding:13px;margin-top:10px;border:1px solid #1683ff;
+      border-radius:10px;background:transparent;color:white;font-weight:bold;">
+      Create Account
+    </button>
+
+    <p id="authMessage" style="font-size:13px;margin-top:15px;"></p>
+  </div>
+</div>
+`;
+
+document.body.appendChild(authBox);
+
+async function loginUser() {
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  const msg = document.getElementById("authMessage");
+
+  if (!email || !password) {
+    msg.textContent = "Email और password डालें।";
+    return;
+  }
+
+  const { error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    msg.textContent = error.message;
+    return;
+  }
+
+  authBox.remove();
+}
+
+async function signupUser() {
+  const email = document.getElementById("authEmail").value.trim();
+  const password = document.getElementById("authPassword").value;
+  const msg = document.getElementById("authMessage");
+
+  if (!email || !password) {
+    msg.textContent = "Email और password डालें।";
+    return;
+  }
+
+  if (password.length < 6) {
+    msg.textContent = "Password कम से कम 6 characters का होना चाहिए।";
+    return;
+  }
+
+  const { error } = await supabaseClient.auth.signUp({
+    email,
+    password
+  });
+
+  if (error) {
+    msg.textContent = error.message;
+    return;
+  }
+
+  msg.textContent = "Account बन गया। अगर email confirmation मांगे तो email verify करें।";
+}
+</script>
 </body>
 </html>
