@@ -302,7 +302,9 @@ display:flex;align-items:center;justify-content:center;padding:20px;">
       border-radius:10px;background:transparent;color:white;font-weight:bold;">
       Create Account
     </button>
-
+<button onclick="googleLogin()" style="width:100%;padding:13px;margin-top:10px;border:0;border-radius:10px;background:#4285F4;color:white;cursor:pointer;">
+  Continue with Google
+</button>
     <p id="authMessage" style="font-size:13px;margin-top:15px;"></p>
   </div>
 </div>
@@ -359,6 +361,18 @@ async function signupUser() {
   }
 
   msg.textContent = "Account बन गया। अगर email confirmation मांगे तो email verify करें।";
+}
+async function googleLogin() {
+  const { error } = await supabaseClient.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: "https://rajneshc510-cloud.github.io/Raj-Wallet/"
+    }
+  });
+
+  if (error) {
+    document.getElementById("authMessage").textContent = error.message;
+  }
 }
 </script>
 <style>
