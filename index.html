@@ -362,7 +362,11 @@ async function signupUser() {
 
   msg.textContent = "Account बन गया। अगर email confirmation मांगे तो email verify करें।";
 }
+```javascript
 async function googleLogin() {
+  const msg = document.getElementById("authMessage");
+  msg.textContent = "Google से कनेक्ट हो रहा है...";
+
   const { error } = await supabaseClient.auth.signInWithOAuth({
     provider: "google",
     options: {
@@ -371,9 +375,33 @@ async function googleLogin() {
   });
 
   if (error) {
-    document.getElementById("authMessage").textContent = error.message;
+    msg.textContent = error.message;
   }
 }
+
+supabaseClient.auth.onAuthStateChange((event, session) => {
+  if (session && (
+    event === "SIGNED_IN" ||
+    event === "INITIAL_SESSION" ||
+    event === "TOKEN_REFRESHED"
+  )) {
+    authBox.remove();
+  }
+});
+
+supabaseClient.auth.getSession().then(({ data, error }) => {
+  if (error) {
+    const msg = document.getElementById("authMessage");
+    if (msg) msg.textContent = error.message;
+    return;
+  }
+
+  if (data.session) {
+    authBox.remove();
+  }
+});
+```
+
 </script>
 <style>
   #authBoxFix,
