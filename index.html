@@ -362,7 +362,6 @@ async function signupUser() {
 
   msg.textContent = "Account बन गया। अगर email confirmation मांगे तो email verify करें।";
 }
-```javascript
 async function googleLogin() {
   const msg = document.getElementById("authMessage");
   msg.textContent = "Google से कनेक्ट हो रहा है...";
@@ -400,7 +399,6 @@ supabaseClient.auth.getSession().then(({ data, error }) => {
     authBox.remove();
   }
 });
-```
 
 </script>
 <style>
