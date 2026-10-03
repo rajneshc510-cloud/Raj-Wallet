@@ -207,22 +207,22 @@
   </div>
 
   <div class="nav">
-    <button>
+    <button onclick="showScreen('home')">
       <span>🏠</span>
       Home
     </button>
 
-    <button>
+    <button onclick="showScreen('tasks')">
       <span>🎯</span>
       Tasks
     </button>
 
-    <button>
+    <button onclick="showScreen('wallet')">
       <span>💰</span>
       Wallet
     </button>
 
-    <button>
+    <button onclick="showScreen('profile')">
       <span>👤</span>
       Profile
     </button>
@@ -232,6 +232,10 @@
 
 <script>
   let coins = 0;
+
+function showScreen(screen) {
+  alert("You selected " + screen + " screen");
+}
 
   function updateBalance() {
     document.getElementById("coins").textContent = coins;
