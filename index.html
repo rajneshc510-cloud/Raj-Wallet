@@ -263,7 +263,7 @@ async function completeTask(button, reward) {
   button.textContent = "Processing...";
 
   const { data, error } = await supabaseClient.rpc("claim_task", {
-    task_type: taskType
+    p_task_type: taskType
   });
 
   if (error) {
