@@ -281,7 +281,7 @@ async function completeTask(button, reward) {
   }
 
   if (data && data.coins !== undefined) {
-    coins = Number(data.coins);
+    coins = Number(data.balance);
     updateBalance();
   }
 
