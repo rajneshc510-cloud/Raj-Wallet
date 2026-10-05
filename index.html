@@ -239,14 +239,15 @@
   let coins = 0;
 
 function showScreen(screen) {
-  document.querySelectorAll(".screen").forEach(function(section) {
-    section.style.display = "none";
-  });
+  const screens = ["home", "tasks", "wallet", "profile"];
 
-  const selectedScreen = document.getElementById(screen + "Screen");
-  if (selectedScreen) {
-    selectedScreen.style.display = "block";
-  }
+  screens.forEach(function(name) {
+    const element = document.getElementById(name + "Screen");
+
+    if (element) {
+      element.style.display = name === screen ? "block" : "none";
+    }
+  });
 }
 
   function updateBalance() {
