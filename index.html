@@ -179,7 +179,7 @@
         <h3>Daily Check-in</h3>
         <p>Check in once every day</p>
       </div>
-      <button onclick="completeTask(this,100)">Earn</button>
+      <button onclick="onclick="completeTask(this,100)" data-task="daily_checkin">Earn</button>
     </div>
 
     <div class="task">
@@ -187,7 +187,7 @@
         <h3>Daily Bonus</h3>
         <p>Claim your available bonus</p>
       </div>
-      <button onclick="completeTask(this,50)">Earn</button>
+      <button onclick="onclick="completeTask(this,50)" data-task="daily_bonus">Earn</button>
     </div>
 
     <div class="task">
@@ -195,7 +195,7 @@
         <h3>Complete Task</h3>
         <p>Eligible task will appear here</p>
       </div>
-      <button onclick="completeTask(this,25)">Earn</button>
+      <button onclick="onclick="completeTask(this,25)" data-task="complete_task">Earn</button>
     </div>
 </div>
   <div id="walletScreen" class="screen">
@@ -256,15 +256,38 @@ function showScreen(screen) {
       (coins / 100).toFixed(2);
   }
 
-  function completeTask(button, reward) {
-    coins += reward;
-    updateBalance();
+async function completeTask(button, reward) {
+  const taskType = button.getAttribute("data-task");
 
-    button.textContent = "Done";
-    button.disabled = true;
+  button.disabled = true;
+  button.textContent = "Processing...";
 
-    alert("Task completed. " + reward + " coins added.");
+  const { data, error } = await supabaseClient.rpc("claim_task", {
+    task_type: taskType
+  });
+
+  if (error) {
+    button.disabled = false;
+    button.textContent = "Earn";
+    alert("Task complete नहीं हुआ: " + error.message);
+    return;
   }
+
+  if (data && data.success === false) {
+    button.disabled = false;
+    button.textContent = "Earn";
+    alert(data.message || "यह task अभी claim नहीं किया जा सकता।");
+    return;
+  }
+
+  if (data && data.coins !== undefined) {
+    coins = Number(data.coins);
+    updateBalance();
+  }
+
+  button.textContent = "Done";
+  alert("Task successfully completed!");
+}
 
   function withdraw() {
     if (coins < 1000) {
