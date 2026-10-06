@@ -257,10 +257,14 @@ function showScreen(screen) {
 }
 
   function updateBalance() {
-    document.getElementById("coins").textContent = coins;
-    document.getElementById("rupees").textContent =
-      (coins / 100).toFixed(2);
-  }
+  document.getElementById("coins").textContent = coins;
+  document.getElementById("rupees").textContent =
+    (coins / 100).toFixed(2);
+
+  document.getElementById("walletCoins").textContent = coins;
+  document.getElementById("walletRupees").textContent =
+    (coins / 100).toFixed(2);
+}
 
 async function completeTask(button, reward) {
   const taskType = button.getAttribute("data-task");
