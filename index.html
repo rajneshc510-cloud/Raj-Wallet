@@ -45,13 +45,37 @@
     }
 
     .balance {
-      margin: 18px;
-      padding: 22px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-    }
+  margin: 18px;
+  padding: 24px;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: white;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+  position: relative;
+  overflow: hidden;
+}
 
+.balance::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -60px;
+  top: -60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+ .demo-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
     .balance-title {
       color: #667085;
       font-size: 14px;
@@ -165,6 +189,7 @@
   </div>
 
   <div class="balance">
+    <div class="demo-badge">RAJWALLET • DEMO REWARDS</div>
     <div class="balance-title">My Balance</div>
     <div class="coins">🪙 <span id="coins">0</span></div>
     <div class="rupees">Current balance: ₹<span id="rupees">0.00</span></div>
