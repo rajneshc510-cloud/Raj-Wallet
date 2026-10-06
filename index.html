@@ -519,8 +519,142 @@ document.getElementById("withdrawHistory").textContent =
 
   updateBalance();
   function openSpin() {
-  alert("🎡 Spin & Win\n\nयह Free Daily Demo Spin है.\nअगले step में इसका spinning wheel और reward जोड़ेंगे.");
+  const today = new Date().toISOString().slice(0, 10);
+  const spinKey = "rajwallet_demo_spin_" + today;
+
+  if (localStorage.getItem(spinKey)) {
+    alert("🎡 आज का Free Demo Spin आप पहले ही इस्तेमाल कर चुके हैं.");
+    return;
+  }
+
+  const rewards = [10, 20, 30, 50];
+  const reward = rewards[Math.floor(Math.random() * rewards.length)];
+
+  const modal = document.createElement("div");
+
+  modal.innerHTML = `
+    <div style="
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+    ">
+      <div style="
+        width:90%;
+        max-width:360px;
+        background:white;
+        border-radius:24px;
+        padding:24px;
+        text-align:center;
+        box-shadow:0 20px 50px rgba(0,0,0,.3);
+      ">
+        <h2 style="margin-top:0;">🎡 Spin & Win</h2>
+        <p style="color:#64748b;">Free Daily Demo Spin</p>
+
+        <div id="spinWheel" style="
+          width:220px;
+          height:220px;
+          margin:20px auto;
+          border-radius:50%;
+          background:conic-gradient(
+            #2563eb 0deg 90deg,
+            #f59e0b 90deg 180deg,
+            #22c55e 180deg 270deg,
+            #ef4444 270deg 360deg
+          );
+          border:8px solid #0f172a;
+          position:relative;
+          transition:transform 4s cubic-bezier(.15,.8,.2,1);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        ">
+          <div style="
+            width:55px;
+            height:55px;
+            background:white;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:25px;
+          ">🪙</div>
+        </div>
+
+        <div style="
+          width:0;
+          height:0;
+          border-left:10px solid transparent;
+          border-right:10px solid transparent;
+          border-top:22px solid #0f172a;
+          margin:-12px auto 15px;
+          position:relative;
+          z-index:2;
+        "></div>
+
+        <button id="startSpin" style="
+          border:none;
+          background:#2563eb;
+          color:white;
+          padding:12px 25px;
+          border-radius:12px;
+          font-weight:bold;
+          cursor:pointer;
+        ">SPIN NOW</button>
+
+        <button id="closeSpin" style="
+          border:none;
+          background:#e5e7eb;
+          color:#172033;
+          padding:12px 20px;
+          border-radius:12px;
+          font-weight:bold;
+          margin-left:8px;
+          cursor:pointer;
+        ">Close</button>
+
+        <p id="spinResult" style="
+          margin-bottom:0;
+          font-weight:bold;
+          color:#2563eb;
+        "></p>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  const wheel = modal.querySelector("#spinWheel");
+  const spinButton = modal.querySelector("#startSpin");
+  const closeButton = modal.querySelector("#closeSpin");
+  const result = modal.querySelector("#spinResult");
+
+  closeButton.onclick = () => modal.remove();
+
+  spinButton.onclick = () => {
+    spinButton.disabled = true;
+    spinButton.style.opacity = "0.6";
+
+    const extraRotation = 1440 + Math.floor(Math.random() * 360);
+    wheel.style.transform = "rotate(" + extraRotation + "deg)";
+
+    setTimeout(() => {
+      localStorage.setItem(spinKey, "1");
+
+      coins += reward;
+      updateBalance();
+
+      result.textContent =
+        "🎉 You won " + reward + " demo coins!";
+
+      spinButton.textContent = "Done";
+    }, 4200);
+  };
 }
+
 </script>
 
  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
