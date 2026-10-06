@@ -308,6 +308,16 @@
     <button onclick="showScreen('tasks')">View</button>
   </div>
 </div>
+    <div class="spin-card">
+  <div class="spin-icon">🎡</div>
+
+  <div class="spin-info">
+    <strong>Spin & Win</strong>
+    <span>Try your free daily spin</span>
+  </div>
+
+  <button onclick="openSpin()">Spin</button>
+</div>
   <div class="content">
 <div id="tasksScreen" class="screen">
     <h2>Available Tasks</h2>
@@ -468,6 +478,9 @@ document.getElementById("withdrawHistory").textContent =
 }
 
   updateBalance();
+  function openSpin() {
+  alert("🎡 Spin & Win\n\nयह Free Daily Demo Spin है.\nअगले step में इसका spinning wheel और reward जोड़ेंगे.");
+}
 </script>
 
  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
