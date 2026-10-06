@@ -299,14 +299,31 @@ async function completeTask(button, reward) {
   alert("Task successfully completed!");
 }
 
-  function withdraw() {
-    if (coins < 1000) {
-      alert("Minimum withdrawal requirement is 1000 coins.");
-      return;
-    }
-
-    alert("Withdrawal request will be processed after verification.");
+function withdraw() {
+  if (coins < 1000) {
+    alert("Minimum withdrawal requirement is 1000 coins.");
+    return;
   }
+
+  const amount = (coins / 100).toFixed(2);
+
+  const upi = prompt(
+    "Demo Withdrawal\n\n" +
+    "Amount: ₹" + amount +
+    "\n\nApni UPI ID enter karein:"
+  );
+
+  if (!upi) {
+    return;
+  }
+
+  alert(
+    "Demo Withdrawal Request Submitted!\n\n" +
+    "Amount: ₹" + amount +
+    "\nUPI ID: " + upi +
+    "\n\n⚠️ This is a DEMO request. No real payment will be made."
+  );
+}
 
   updateBalance();
 </script>
