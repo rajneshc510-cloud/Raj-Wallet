@@ -291,10 +291,10 @@ async function completeTask(button, reward) {
     return;
   }
 
-  if (data && data.coins !== undefined) {
-    coins = Number(data.balance);
-    updateBalance();
-  }
+  if (data && data.success === true && data.coins !== undefined) {
+  coins += Number(data.coins);
+  updateBalance();
+}
 
   button.textContent = "Done";
   alert("Task successfully completed!");
