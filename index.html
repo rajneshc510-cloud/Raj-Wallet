@@ -402,9 +402,294 @@
 </div>
   </div>
 <div id="profileScreen" class="screen">
-  <h2>My Profile</h2>
-  <p>Welcome to RajWallet</p>
-  <p>Account details will appear here.</p>
+
+  <div style="
+    background:#071426;
+    color:white;
+    min-height:100vh;
+    padding-bottom:90px;
+  ">
+
+    <!-- Header -->
+    <div style="
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:28px 20px 22px;
+    ">
+      <button onclick="showScreen('home')" style="
+        width:58px;
+        height:58px;
+        border-radius:18px;
+        border:1px solid #2563eb;
+        background:#10264a;
+        color:#38bdf8;
+        font-size:30px;
+        cursor:pointer;
+      ">←</button>
+
+      <h1 style="
+        margin:0;
+        font-size:32px;
+      ">My Profile</h1>
+    </div>
+
+    <!-- Profile Card -->
+    <div style="
+      margin:0 18px 20px;
+      padding:28px 20px;
+      border:1px solid #2563eb;
+      border-radius:26px;
+      background:linear-gradient(135deg,#123b5d,#18233b);
+    ">
+
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:20px;
+      ">
+
+        <div style="
+          width:82px;
+          height:82px;
+          min-width:82px;
+          border-radius:24px;
+          background:linear-gradient(135deg,#38bdf8,#8b5cf6);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:42px;
+          font-weight:800;
+        ">R</div>
+
+        <div>
+          <h2 style="
+            margin:0 0 8px;
+            font-size:30px;
+          ">Rajnesh</h2>
+
+          <div id="profileEmail" style="
+            color:#cbd5e1;
+            font-size:15px;
+            margin-bottom:12px;
+          ">Loading email...</div>
+
+          <span style="
+            display:inline-block;
+            padding:7px 14px;
+            border-radius:20px;
+            background:rgba(34,197,94,.15);
+            border:1px solid rgba(34,197,94,.35);
+            color:#22c55e;
+            font-weight:bold;
+          ">● VERIFIED ACCOUNT</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Account Info -->
+    <div style="margin:0 18px 22px;">
+
+      <h3 style="
+        color:#94a3b8;
+        letter-spacing:1px;
+        margin:0 0 12px;
+      ">ACCOUNT INFO</h3>
+
+      <div style="
+        background:#12284d;
+        border:1px solid #2563eb;
+        border-radius:22px;
+        overflow:hidden;
+      ">
+
+        <div style="
+          padding:20px;
+          border-bottom:1px solid #28538d;
+          display:flex;
+          align-items:center;
+          gap:18px;
+        ">
+          <div style="font-size:30px;">📱</div>
+          <div>
+            <div style="
+              color:#94a3b8;
+              font-weight:bold;
+              font-size:13px;
+              letter-spacing:1px;
+            ">MOBILE NUMBER</div>
+
+            <strong style="font-size:20px;">
+              Not added
+            </strong>
+          </div>
+        </div>
+
+        <div style="
+          padding:20px;
+          display:flex;
+          align-items:center;
+          gap:18px;
+        ">
+          <div style="font-size:30px;">📅</div>
+          <div>
+            <div style="
+              color:#94a3b8;
+              font-weight:bold;
+              font-size:13px;
+              letter-spacing:1px;
+            ">MEMBER SINCE</div>
+
+            <strong id="memberSince" style="font-size:20px;">
+              Loading...
+            </strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Engage -->
+    <div style="margin:0 18px 22px;">
+
+      <h3 style="
+        color:#94a3b8;
+        letter-spacing:1px;
+      ">ENGAGE</h3>
+
+      <button onclick="alert('⭐ Rating feature will be added soon.')" style="
+        width:100%;
+        padding:18px;
+        border-radius:22px;
+        border:1px solid #2563eb;
+        background:#12284d;
+        color:white;
+        text-align:left;
+        cursor:pointer;
+      ">
+        <strong style="font-size:20px;">⭐ Rate Us</strong>
+        <div style="color:#94a3b8;margin-top:5px;">
+          Share your feedback about RajWallet
+        </div>
+      </button>
+
+    </div>
+
+    <!-- Connect -->
+    <div style="margin:0 18px 22px;">
+
+      <h3 style="
+        color:#94a3b8;
+        letter-spacing:1px;
+      ">CONNECT</h3>
+
+      <div style="
+        background:#12284d;
+        border:1px solid #2563eb;
+        border-radius:22px;
+        overflow:hidden;
+      ">
+
+        <button onclick="alert('WhatsApp Channel link will be added soon.')" style="
+          width:100%;
+          padding:20px;
+          border:0;
+          border-bottom:1px solid #28538d;
+          background:transparent;
+          color:white;
+          text-align:left;
+          cursor:pointer;
+        ">
+          <strong style="font-size:20px;">🟢 WhatsApp Channel</strong>
+          <div style="color:#94a3b8;margin-top:5px;">
+            Instant alerts
+          </div>
+        </button>
+
+        <button onclick="alert('Telegram link will be added soon.')" style="
+          width:100%;
+          padding:20px;
+          border:0;
+          background:transparent;
+          color:white;
+          text-align:left;
+          cursor:pointer;
+        ">
+          <strong style="font-size:20px;">🔵 Join Telegram</strong>
+          <div style="color:#94a3b8;margin-top:5px;">
+            Daily offers & updates
+          </div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div style="margin:0 18px 22px;">
+
+      <h3 style="
+        color:#94a3b8;
+        letter-spacing:1px;
+      ">SUPPORT & LEGAL</h3>
+
+      <div style="
+        background:#12284d;
+        border:1px solid #2563eb;
+        border-radius:22px;
+        overflow:hidden;
+      ">
+
+        <button onclick="alert('Support section will be added soon.')" style="
+          width:100%;
+          padding:20px;
+          border:0;
+          border-bottom:1px solid #28538d;
+          background:transparent;
+          color:white;
+          text-align:left;
+          cursor:pointer;
+        ">
+          <strong style="font-size:20px;">❓ Help & Support</strong>
+          <div style="color:#94a3b8;margin-top:5px;">
+            Contact our support team
+          </div>
+        </button>
+
+        <button onclick="alert('Terms & Privacy section will be added soon.')" style="
+          width:100%;
+          padding:20px;
+          border:0;
+          background:transparent;
+          color:white;
+          text-align:left;
+          cursor:pointer;
+        ">
+          <strong style="font-size:20px;">⚖️ Terms & Privacy</strong>
+          <div style="color:#94a3b8;margin-top:5px;">
+            App information and policies
+          </div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Demo Notice -->
+    <div style="
+      margin:0 18px;
+      padding:16px;
+      border-radius:18px;
+      background:#10264a;
+      color:#93c5fd;
+      font-size:13px;
+      line-height:1.5;
+    ">
+      ⚠️ <strong>Demo Notice</strong><br>
+      RajWallet currently uses demo rewards and demo values.
+      No real payment is made.
+    </div>
+
+  </div>
 </div>
   <div class="nav">
     <button onclick="showScreen('home')">
@@ -824,6 +1109,34 @@ document.querySelectorAll('button').forEach(function(button) {
   button.style.pointerEvents = 'auto';
   button.style.cursor = 'pointer';
 });
+</script>
+  <script>
+async function loadProfileInfo() {
+  const { data: { user } } = await supabaseClient.auth.getUser();
+
+  if (!user) return;
+
+  const emailElement = document.getElementById("profileEmail");
+  const dateElement = document.getElementById("memberSince");
+
+  if (emailElement) {
+    emailElement.textContent = "✉️ " + (user.email || "Email not available");
+  }
+
+  if (dateElement) {
+    const date = user.created_at
+      ? new Date(user.created_at).toLocaleDateString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric"
+        })
+      : "Not available";
+
+    dateElement.textContent = date;
+  }
+}
+
+loadProfileInfo();
 </script>
 </body>
 </html>
