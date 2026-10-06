@@ -317,8 +317,11 @@ function withdraw() {
   if (!upi) {
     return;
   }
-
+document.getElementById("withdrawHistory").textContent =
+  "₹" + amount + " | Withdrawal request submitted | Pending (Demo)";
+  
   alert(
+    
     "Demo Withdrawal Request Submitted!\n\n" +
     "Amount: ₹" + amount +
     "\nUPI ID: " + upi +
