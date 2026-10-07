@@ -408,234 +408,258 @@
 <div id="profileScreen" class="screen">
 
   <div style="
-    padding:20px 18px 110px;
     background:#f4f7fb;
     min-height:100vh;
+    padding:18px 18px 110px;
   ">
 
-    <!-- Profile Header -->
+    <!-- Header -->
     <div style="
-      background:linear-gradient(135deg,#0f172a,#2563eb);
-      color:white;
-      padding:24px 20px;
-      border-radius:0 0 24px 24px;
-      margin:-20px -18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:24px;
     ">
+      <h1 style="
+        margin:0;
+        font-size:28px;
+        color:#172033;
+      ">Profile</h1>
+
+      <button onclick="alert('Edit Profile feature will be added soon.')" style="
+        border:0;
+        background:none;
+        color:#2563eb;
+        font-size:17px;
+        font-weight:bold;
+        cursor:pointer;
+      ">✎ Edit</button>
+    </div>
+
+    <!-- Profile -->
+    <div style="text-align:center;margin-bottom:28px;">
+
       <div style="
+        width:120px;
+        height:120px;
+        margin:auto;
+        border-radius:50%;
+        border:2px solid #2563eb;
+        background:white;
         display:flex;
         align-items:center;
-        gap:15px;
+        justify-content:center;
       ">
         <div style="
-          width:64px;
-          height:64px;
-          border-radius:20px;
-          background:linear-gradient(135deg,#38bdf8,#8b5cf6);
+          width:82px;
+          height:82px;
+          border-radius:50%;
+          background:#eef4fc;
           display:flex;
           align-items:center;
           justify-content:center;
-          font-size:32px;
-          font-weight:800;
+          color:#2563eb;
+          font-size:42px;
+          font-weight:bold;
         ">R</div>
-
-        <div style="flex:1;">
-          <h1 style="
-            margin:0;
-            font-size:25px;
-          ">Rajnesh</h1>
-
-          <p id="profileEmail" style="
-            margin:5px 0 10px;
-            color:#dbeafe;
-            font-size:13px;
-          ">Loading email...</p>
-
-          <span style="
-            display:inline-block;
-            padding:5px 10px;
-            border-radius:20px;
-            background:rgba(34,197,94,.18);
-            border:1px solid rgba(34,197,94,.35);
-            color:#86efac;
-            font-size:11px;
-            font-weight:bold;
-          ">✓ VERIFIED</span>
-
-          <span style="
-            display:inline-block;
-            padding:5px 10px;
-            border-radius:20px;
-            background:rgba(255,255,255,.12);
-            color:#dbeafe;
-            font-size:11px;
-            font-weight:bold;
-            margin-left:5px;
-          ">DEMO ACCOUNT</span>
-        </div>
       </div>
+
+      <h2 style="
+        margin:16px 0 6px;
+        font-size:30px;
+        color:#172033;
+      ">Rajnesh</h2>
+
+      <div id="profilePhone" style="
+        font-size:20px;
+        color:#4b5563;
+        margin-bottom:5px;
+      ">Mobile number not added</div>
+
+      <div id="profileEmail" style="
+        font-size:18px;
+        color:#4b5563;
+      ">Loading email...</div>
+
     </div>
 
-    <!-- Account -->
-    <h2 style="
-      font-size:20px;
-      margin:20px 0 12px;
-      color:#172033;
-    ">Account</h2>
-
-    <div style="
+    <!-- Invite -->
+    <button onclick="alert('Referral feature will be added soon.')" style="
+      width:100%;
+      border:0;
       background:white;
-      border-radius:18px;
-      box-shadow:0 6px 20px rgba(0,0,0,.07);
-      overflow:hidden;
+      border-radius:24px;
+      padding:20px;
+      margin-bottom:16px;
+      display:flex;
+      align-items:center;
+      text-align:left;
+      box-shadow:0 5px 18px rgba(0,0,0,.06);
+      cursor:pointer;
     ">
+      <span style="
+        font-size:38px;
+        margin-right:18px;
+      ">🎁</span>
 
-      <div style="
-        padding:17px;
-        display:flex;
-        align-items:center;
-        gap:14px;
-        border-bottom:1px solid #edf0f5;
-      ">
-        <div style="font-size:25px;">📅</div>
-
-        <div>
-          <div style="
-            font-size:12px;
-            color:#667085;
-          ">MEMBER SINCE</div>
-
-          <strong id="memberSince" style="
-            font-size:16px;
-            color:#172033;
-          ">Loading...</strong>
-        </div>
-      </div>
-
-      <div style="
-        padding:17px;
-        display:flex;
-        align-items:center;
-        gap:14px;
-      ">
-        <div style="font-size:25px;">📱</div>
-
-        <div>
-          <div style="
-            font-size:12px;
-            color:#667085;
-          ">MOBILE NUMBER</div>
-
-          <strong style="
-            font-size:16px;
-            color:#172033;
-          ">Not added</strong>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Activity -->
-    <h2 style="
-      font-size:20px;
-      margin:24px 0 12px;
-      color:#172033;
-    ">My Activity</h2>
-
-    <div style="
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    ">
-
-      <div style="
-        background:white;
-        padding:18px;
-        border-radius:18px;
-        box-shadow:0 6px 20px rgba(0,0,0,.07);
-      ">
-        <div style="font-size:25px;">🪙</div>
-        <div style="
-          margin-top:8px;
-          font-size:12px;
-          color:#667085;
-        ">CURRENT COINS</div>
-        <strong id="profileCoins" style="
-          font-size:20px;
-          color:#172033;
-        ">0</strong>
-      </div>
-
-      <div style="
-        background:white;
-        padding:18px;
-        border-radius:18px;
-        box-shadow:0 6px 20px rgba(0,0,0,.07);
-      ">
-        <div style="font-size:25px;">🎯</div>
-        <div style="
-          margin-top:8px;
-          font-size:12px;
-          color:#667085;
-        ">TASKS</div>
+      <span style="flex:1;">
         <strong style="
-          font-size:20px;
+          display:block;
+          font-size:21px;
           color:#172033;
-        ">Demo</strong>
-      </div>
+        ">Invite friend and earn</strong>
 
-    </div>
+        <small style="
+          display:block;
+          margin-top:5px;
+          color:#7b7f87;
+          font-size:15px;
+        ">Give your friends unique referral code</small>
+      </span>
 
-    <!-- Support -->
-    <h2 style="
-      font-size:20px;
-      margin:24px 0 12px;
-      color:#172033;
-    ">More</h2>
+      <span style="
+        font-size:30px;
+        color:#172033;
+      ">›</span>
+    </button>
 
+    <!-- Menu -->
     <div style="
       background:white;
-      border-radius:18px;
-      box-shadow:0 6px 20px rgba(0,0,0,.07);
+      border-radius:24px;
       overflow:hidden;
+      box-shadow:0 5px 18px rgba(0,0,0,.06);
     ">
 
-      <button onclick="alert('Help & Support will be added soon.')" style="
+      <button onclick="showScreen('wallet')" style="
         width:100%;
-        padding:17px;
+        padding:20px 24px;
         border:0;
-        border-bottom:1px solid #edf0f5;
+        border-bottom:1px solid #e5e7eb;
         background:white;
+        display:flex;
+        align-items:center;
         text-align:left;
         cursor:pointer;
-        font-size:16px;
+        font-size:20px;
         color:#172033;
-      ">❓ &nbsp; Help & Support</button>
+      ">
+        <span style="font-size:30px;width:58px;">▣</span>
+        <span style="flex:1;">Wallet</span>
+        <span style="font-size:30px;">›</span>
+      </button>
 
-      <button onclick="alert('Terms & Privacy will be added soon.')" style="
+      <button onclick="showScreen('wallet')" style="
         width:100%;
-        padding:17px;
+        padding:20px 24px;
         border:0;
+        border-bottom:1px solid #e5e7eb;
         background:white;
+        display:flex;
+        align-items:center;
         text-align:left;
         cursor:pointer;
-        font-size:16px;
+        font-size:20px;
         color:#172033;
-      ">⚖️ &nbsp; Terms & Privacy</button>
+      ">
+        <span style="font-size:30px;width:58px;">🪙</span>
+        <span style="flex:1;">Coins</span>
+        <span style="font-size:30px;">›</span>
+      </button>
+
+      <button onclick="alert('Bank Accounts feature will be added soon.')" style="
+        width:100%;
+        padding:20px 24px;
+        border:0;
+        border-bottom:1px solid #e5e7eb;
+        background:white;
+        display:flex;
+        align-items:center;
+        text-align:left;
+        cursor:pointer;
+        font-size:20px;
+        color:#172033;
+      ">
+        <span style="font-size:30px;width:58px;">🏦</span>
+        <span style="flex:1;">Bank Accounts</span>
+        <span style="font-size:30px;">›</span>
+      </button>
+
+      <button onclick="alert('Contact Support feature will be added soon.')" style="
+        width:100%;
+        padding:20px 24px;
+        border:0;
+        border-bottom:1px solid #e5e7eb;
+        background:white;
+        display:flex;
+        align-items:center;
+        text-align:left;
+        cursor:pointer;
+        font-size:20px;
+        color:#172033;
+      ">
+        <span style="font-size:30px;width:58px;">✉</span>
+        <span style="flex:1;">Contact Support</span>
+        <span style="font-size:30px;">›</span>
+      </button>
+
+      <button onclick="alert('Settings feature will be added soon.')" style="
+        width:100%;
+        padding:20px 24px;
+        border:0;
+        background:white;
+        display:flex;
+        align-items:center;
+        text-align:left;
+        cursor:pointer;
+        font-size:20px;
+        color:#172033;
+      ">
+        <span style="font-size:30px;width:58px;">⚙</span>
+        <span style="flex:1;">Settings</span>
+        <span style="font-size:30px;">›</span>
+      </button>
 
     </div>
 
-    <!-- Demo Tag -->
+    <!-- Follow Us -->
     <div style="
-      margin-top:18px;
-      padding:13px 15px;
-      border-radius:15px;
-      background:#eaf2ff;
-      color:#2563eb;
-      font-size:12px;
-      line-height:1.5;
+      background:white;
+      border-radius:24px;
+      margin-top:22px;
+      padding:24px;
+      box-shadow:0 5px 18px rgba(0,0,0,.06);
     ">
-      ℹ️ <strong>Demo Mode</strong><br>
-      RajWallet currently shows demo rewards and demo values. No real payment is made.
+      <h2 style="
+        margin:0 0 18px;
+        font-size:24px;
+        color:#172033;
+      ">Follow Us</h2>
+
+      <div style="
+        display:flex;
+        gap:12px;
+      ">
+        <button onclick="alert('WhatsApp Channel will be added soon.')" style="
+          flex:1;
+          padding:14px;
+          border:1px solid #e5e7eb;
+          border-radius:15px;
+          background:white;
+          cursor:pointer;
+          font-size:15px;
+        ">🟢 WhatsApp</button>
+
+        <button onclick="alert('Telegram will be added soon.')" style="
+          flex:1;
+          padding:14px;
+          border:1px solid #e5e7eb;
+          border-radius:15px;
+          background:white;
+          cursor:pointer;
+          font-size:15px;
+        ">🔵 Telegram</button>
+      </div>
     </div>
 
   </div>
