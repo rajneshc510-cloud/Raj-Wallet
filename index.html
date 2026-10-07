@@ -315,11 +315,39 @@
     <div class="rupees">Current balance: ₹<span id="rupees">0.00</span></div>
   
 </div>
+  
+  <div class="home-tasks">
+  <div class="section-head">
+    <h2>Today's Tasks</h2>
+    <button class="see-all" onclick="showScreen('tasks')">See all →</button>
+  </div>
 
+  <div class="quick-task">
+    <div class="task-icon">🎁</div>
+    <div class="quick-task-info">
+      <strong>Daily Check-in</strong>
+      <span>Claim your daily demo reward</span>
     </div>
     <button onclick="showScreen('tasks')">View</button>
   </div>
 
+  <div class="quick-task">
+    <div class="task-icon">⭐</div>
+    <div class="quick-task-info">
+      <strong>Daily Bonus</strong>
+      <span>Check your available bonus</span>
+    </div>
+    <button onclick="showScreen('tasks')">View</button>
+  </div>
+
+  <div class="quick-task">
+    <div class="task-icon">✓</div>
+    <div class="quick-task-info">
+      <strong>Complete Task</strong>
+      <span>View eligible demo task</span>
+    </div>
+    <button onclick="showScreen('tasks')">View</button>
+  </div>
 </div>
     <div class="spin-card">
   <div class="spin-icon">🎡</div>
@@ -436,11 +464,11 @@
         ">R</div>
       </div>
 
-    <h2 style="
-  margin:16px 0 6px;
-  font-size:30px;
-  color:#172033 !important;
-">Rajnesh</h2>
+      <h2 style="
+        margin:16px 0 6px;
+        font-size:30px;
+        color:#172033;
+      ">Rajnesh</h2>
 
       <div id="profilePhone" style="
         font-size:20px;
@@ -634,6 +662,9 @@
       </div>
     </div>
 
+  </div>
+</div>
+</div>
   <div class="nav">
     <button onclick="showScreen('home')">
       <span>🏠</span>
